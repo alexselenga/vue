@@ -1,6 +1,6 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <v-container class="tasks">
-      <task-form :title="formTitle" :task="curTask" :statuses="statuses" :priors="priors" @onClose="taskCommit($event)"/>
+      <task-form :title="formTitle" :task="curTask" :statuses="statuses.slice(1)" :priors="priors.slice(1)" @onClose="taskCommit($event)"/>
       <div class="tasks-nav">
         <h1 class="tasks-label">Рабочие задания</h1>
         <div class="tasks-info">
@@ -51,6 +51,7 @@
             class="table-row"
             v-for="task in tasks"
             :key="task.id"
+            :class="{ 'current-row': task.id == curTask.id }"
             :setPrior="prior = priors.find((p) => p.priorId == task.priorId) || priors[0]"
             :setStatus="status = statuses.find((s) => s.statusId == task.statusId) || statuses[0]"
             @click="taskUpdate(task, $event)"
@@ -110,8 +111,8 @@ export default {
   methods: {
     taskCreate () {
       this.curTask = {
-        statusId: 0,
-        priorId: 0
+        statusId: 1,
+        priorId: 2
       }
 
       this.formTitle = 'Новое задание'
@@ -218,6 +219,9 @@ export default {
   }
   .table-row:hover {
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+  }
+  .current-row {
+    background-color: #E0E0E0;
   }
   .table-cell {
     width: 200px;

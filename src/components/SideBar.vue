@@ -38,7 +38,8 @@ export default {
   margin-top: 20px;
   position: sticky;
   align-self: start;
-  width: 320px;
+  max-width: 320px;
+  min-width: 300px;
   background-color: dimgray;
   border-radius: 8px;
   padding: 20px;
