@@ -36,6 +36,7 @@ export default {
 .side-bar {
   top: 20px;
   margin-top: 20px;
+  margin-left: 10px;
   position: sticky;
   align-self: start;
   max-width: 320px;
