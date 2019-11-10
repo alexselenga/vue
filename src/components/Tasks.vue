@@ -42,8 +42,7 @@
         <div class="table-cell">Приоритет</div>
         <div class="table-cell">Бригада /<br>исполнитель</div>
         <div class="table-cell">Объект</div>
-        <div class="table-cell">
-        </div>
+        <div class="table-cell"></div>
       </div>
 
       <div class="table-data">
